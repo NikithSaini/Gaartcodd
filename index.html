@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bdy">
+    <p class="para1">
+      for
+      <img
+        id="dynamicImage"
+        src=""
+        alt="Dynamic Image"
+        height="15px"
+        width="40px"
+      />
+      & Cloud </br> gaming
+    </p>
+    <p id="changingText">Join us on the launch of gartcod by</p>
+    <div id="countdown-container">
+      <div>
+        <p id="days">00</p>
+        <p id="days-label">Days</p>
+      </div>
+      <div>
+        <p id="hours">00</p>
+        <p id="hours-label">Hours</p>
+      </div>
+      <div>
+        <p id="minutes">00</p>
+        <p id="minutes-label">Minutes</p>
+      </div>
+      <div>
+        <p id="seconds">00</p>
+        <p id="seconds-label">Seconds</p>
+      </div>
+    </div>
+    <button class="btn">Claim Ticket</button>
+
+    <script>
+      // Set the initial countdown value in seconds
+      let countdown = 2592000; // 1 day in seconds
+
+      const imageUrls = [
+        "data:image/png;base64,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",
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAclBMVEX///8AAAACAgLz8/NdXV1GRkbc3Nx4eHjv7+/s7OxCQkKpqamysrLFxcXS0tKcnJzLy8uWlpb5+fkbGxsnJycUFBTi4uI0NDQ9PT2Dg4OKiopqamq4uLhOTk4uLi5VVVVmZmYjIyN0dHQPDw+rq6ugoKBZ+CPjAAAEjUlEQVR4nO2da3OqMBCGiTekKBZUvFRF2/r//+KBcKmXHkJMWLb6Pl/OqePs7NMkS8J0so4DAAAAAAAAAAAAAAAAAAAAAOgGz3fX4nEOH2EQde1Qxy4xsCtZhF7XHv9jmo1ez5RMMmQ5jpFrw6+QXAVd69zjrSs/kylahdh1LXSLt8izs7AOiziTrpWuifIRTNNb+yODOP2pWynymqibIqvERC8n2haKC07lJihG0LcT7ZQrhlai2WEgfq0Ok/2mGofp7Bq/ZoTieR6v31K6+sT5EM5uPh6nS+pc/D+4qyfbmoDFnDjXfIWWUOazuv3YSz1K6/jOsDb9rYx4aCXbR1jIfKZ3n/vLYzUXveCa+pIUZYMoBJftW1+ms7QaUxZnNs/Encymbl3pE8iYrtWYj3Nu4fedT9O7pd0Rn9JQLizPBnLtruVC7FasYiiTGacLcmBjWyoO2X5tIIMy2dYsRPF4DsVwYE4iFmnQD07FVJSGrjDfljrZnHBKQyvxzGnRkMn5ohXDowz6biOeOa0YDmBICQx1eSlDJrX0qz1DJs/D05MbRrt5e4axjXimTEX12si+IYt9KQz1eSnDsY14psBQn5cyZPFev1VDFvvSFg3TqPcv0umBoT4wpAaG+nAzdPrrtk5PXAydt6c3HD654ShZPrnh81caGOoDQ2paPT2x+CtTnID1eam3GDAkAYb6wJCa5zeMB62dLZgYtng+ZGPY2hkfhmTAUBcY0gNDXWBIDwx1gSE9MNQFhvTAUBcY0gNDXWBIDwx1gSE9MNQFhvTAUBcY0gNDXWBIDwx1gSE9MNQFhvTAUBcY0gNDXWBIDwx1gSE9MNQFhvTAUBcY0gNDXWBIDwx1gSE9MNQFhvTAUBcY0gNDXVgbWrnZmJ9hdZvZRoS7iTHfJ2a37DrOqjS8b8z1GFnDNVaGh9LQib99Fepv+PLSUkb3eV/cyW4TRneyO86yuWE0HnnN+v+wMuw1NRy582yZDZrc/sSqN4JoaLitSkmiriB/0fCYNatyt5t9+u9SWUIY3ZTc1HCTin3LNRishZirgv49w5H4qRvRvr6FZcbfMzxedvjNulsqSirPfk/1X7rsublV3hfIqmdX3qOkfkzSDd1lu8Z3oeqFy6rv2qrBGL5fNwuOhao/JaveeU2uOLwZtHRIN02Cmidnhbwrav0TLq0tycWPE2VncVY9LH1pqNiKHa4OCkPVEsv7kK4tZGeDqWjQS9a/HMT0h7f6r+e9ZBUzmYyoUT/gdNNd9j/2hbJK8uoHLIvpbz2dr8g2NfNz3B/vEqF8VjDr6Vz05VZ10Q6W1+8p6uDWl7vora5K23MLv71qMzbi1lu9vLhZuWy8yebTnSk3Kt5c9BodyOgo+tlb+qUH2YufBnOClE2ek0jMN5LRVuTBFkwaOudEq0JR7CcmBTCaZms1D8XkXFHincrEzOk1W9TUxIc8NUPLKgQ7Qcfpf/wkaIgQK2ZTtGC3suGYjWTIqshcEE32FpbhImSzWfuN2HfXX4/brT5nAdfxAwAAAAAAAAAAAAAAAAAAAODp+QdLRkcjzQG26wAAAABJRU5ErkJggg==",
+      ];
+
+      // Generate a random color in hex format
+      let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+      // Display the initial countdown value
+      updateTimerDisplay();
+      updateDynamicImage();
+      updateChangingText();
+      updateButtonColor();
+      updateLabelsColor();
+
+      // Update the countdown every second
+      const timerId = setInterval(() => {
+        countdown--;
+
+        // Display the updated countdown value
+        updateTimerDisplay();
+        updateDynamicImage();
+        updateChangingText();
+        updateButtonColor();
+        updateLabelsColor();
+
+        // Check if the countdown has reached zero
+        if (countdown === 0) {
+          // Perform actions when the timer reaches zero
+          console.log("Timer expired!");
+          clearInterval(timerId); // Stop the timer
+        }
+
+        // Change the random color every second
+        randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+      }, 1000); // Repeat every 1000 milliseconds (1 second)
+
+      function updateTimerDisplay() {
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(countdown / 86400);
+        const hours = Math.floor((countdown % 86400) / 3600);
+        const minutes = Math.floor((countdown % 3600) / 60);
+        const seconds = countdown % 60;
+
+        // Update the UI with the countdown values
+        document.getElementById("days").textContent = formatTime(days);
+        document.getElementById("hours").textContent = formatTime(hours);
+        document.getElementById("minutes").textContent = formatTime(minutes);
+        document.getElementById("seconds").textContent = formatTime(seconds);
+      }
+
+      function updateDynamicImage() {
+        // Get the dynamic image element
+        const dynamicImage = document.getElementById("dynamicImage");
+
+        // Set the source of the dynamic image to a random placeholder image URL
+        const randomIndex = Math.floor(Math.random() * imageUrls.length);
+        dynamicImage.src = imageUrls[randomIndex];
+      }
+
+      function updateChangingText() {
+        // Get the changing text element
+        const changingText = document.getElementById("changingText");
+
+        // Update the text content
+        changingText.textContent = "Join us on the launch of gartcod by";
+        changingText.style.color = randomColor;
+      }
+
+      function updateButtonColor() {
+        // Get the button element
+        const button = document.querySelector(".btn");
+
+        // Update the button color
+        button.style.backgroundColor = randomColor;
+      }
+
+      function updateLabelsColor() {
+        // Get the labels elements
+        const daysLabel = document.getElementById("days-label");
+        const hoursLabel = document.getElementById("hours-label");
+        const minutesLabel = document.getElementById("minutes-label");
+        const secondsLabel = document.getElementById("seconds-label");
+
+        // Update the labels color
+        daysLabel.style.color = randomColor;
+        hoursLabel.style.color = randomColor;
+        minutesLabel.style.color = randomColor;
+        secondsLabel.style.color = randomColor;
+      }
+
+      // Helper function to format time values (add leading zero if needed)
+      function formatTime(time) {
+        return time < 10 ? `0${time}` : time;
+      }
+    </script>
+  </body>
+</html>
